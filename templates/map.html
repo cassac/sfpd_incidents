@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="shortcut icon" href="#" type="image/x-icon">
-</head>
-
-<body>
-<div id="googleMap" style="height: 800px; width: 1000px;"></div>
-<script src="http://maps.googleapis.com/maps/api/js"></script>
-<script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  <script type=text/javascript>
-    $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-  </script>
-  </body>
-</body>
+	<head>
+		<link rel="shortcut icon" href="#" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+	</head>
+	<body>
+		<div id="googleMap"></div>
+		<div id="optionsMenu">
+			<p>Incidents Amount to Display</p>
+			<select id="selectAmount">
+				<option value="10">10</option>
+				<option value="25">25</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+				<option value="250">250</option>
+			</select> 
+			<p><span>Data for month of August, 2015. Source: SF OpenData</span><p>
+		</div>
+		<script src="http://maps.googleapis.com/maps/api/js"></script>
+		<script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+		<script type=text/javascript>
+		$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+		</script>
+	</body>
 </html>

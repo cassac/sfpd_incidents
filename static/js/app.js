@@ -100,9 +100,11 @@ var drawMarker = function(incident) {
 	assignIcon(incident)
 };
 
-$(document).ready(function(){
+var get_data = function() {
+	var amount = $('#selectAmount').val()
 	$.ajax({
 		url: '/incidents',
+		data: {'amount': amount},
 		headers: {
 		  'Accept': 'application/json'
 		},
@@ -112,5 +114,15 @@ $(document).ready(function(){
 		error: function(error){
 			console.log('Error: ', error)
 		}
-	}); // ajax	 
+	}); // ajax	
+};
+
+$( "#selectAmount" ).change(function() {
+	markers = []
+	get_data(); 
+});
+
+
+$(document).ready(function(){
+	get_data(); 
 });
